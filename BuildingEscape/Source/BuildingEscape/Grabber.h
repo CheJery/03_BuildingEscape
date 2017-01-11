@@ -22,7 +22,6 @@ public:
 	virtual void TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction ) override;
 
 private:
-
 	float Reach = 100.f;
 
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
@@ -34,4 +33,13 @@ private:
 
 	// called when grab is released
 	void Release();
+
+	// Find (assumed) attached phyics handle
+	void FindPhysicsHandleComponent();
+
+	// setup (assumed) attacked input component
+	void SetupInputComponent();
+
+	// return hit for first physics body in reach
+	const FHitResult GetFirstPhysicsBodyInReach();
 };
